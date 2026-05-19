@@ -1,0 +1,398 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="ja"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MINIMAL - デジタルで、未来を織る。</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#cfc4c5",
+                        "on-background": "#1a1c1a",
+                        "surface": "#faf9f6",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#1b1c1c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#2f312f",
+                        "outline": "#7e7576",
+                        "on-primary-fixed": "#1b1b1b",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#474646",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f2f1ee",
+                        "on-surface-variant": "#4c4546",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface-container-high": "#e9e8e5",
+                        "secondary": "#5f5e5e",
+                        "surface-container-highest": "#e3e2e0",
+                        "surface-container": "#efeeeb",
+                        "on-secondary-container": "#656464",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container-low": "#f4f3f1",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#848484",
+                        "surface-tint": "#5e5e5e",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e5e2e1",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "surface-variant": "#e3e2e0",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dbdad7",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c1a",
+                        "tertiary": "#000000",
+                        "primary-container": "#1b1b1b",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "tertiary-fixed": "#e4e2e2",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "inverse-primary": "#c6c6c6",
+                        "surface-bright": "#faf9f6",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#848483",
+                        "background": "#faf9f6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "stack-md": "32px",
+                        "gutter": "24px",
+                        "stack-lg": "80px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "stack-sm": "16px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Inter", "sans-serif"],
+                        "body-lg": ["Noto Sans JP", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "caption": ["Noto Sans JP", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Noto Sans JP", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+                        "headline-md": ["20px", { lineHeight: "1.4", letterSpacing: "0", fontWeight: "600" }],
+                        "caption": ["12px", { lineHeight: "1.4", letterSpacing: "0", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }]
+                    },
+                    transitionTimingFunction: {
+                        'elegant': 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .char-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            display: inline-block;
+        }
+        
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: theme('colors.primary');
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-overlay {
+            background: linear-gradient(to bottom, rgba(250, 249, 246, 0.3) 0%, rgba(250, 249, 246, 0.9) 100%);
+        }
+
+        /* Multi-layered shadow for cards as per guidance */
+        .card-shadow {
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 10px 15px -3px rgba(0, 0, 0, 0.02),
+                0 20px 25px -5px rgba(0, 0, 0, 0.01);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 0, 0, 0.08),
+                0 20px 25px -5px rgba(0, 0, 0, 0.04),
+                0 25px 50px -12px rgba(0, 0, 0, 0.02);
+        }
+    </style>
+<style>
+                @keyframes fadeUp {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            </style></head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto transition-all duration-500 ease-in-out bg-surface/90 backdrop-blur-md border-b border-outline-variant" id="main-header">
+<a class="font-display-lg text-headline-lg tracking-tighter text-primary" href="#">WebHouse</a>
+<nav class="hidden md:flex gap-gutter">
+<a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#hero">Slogan</a>
+<a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#service">Service</a>
+<a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#overview">Overview</a>
+<a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+</nav>
+<a class="hidden md:block px-6 py-3 bg-primary text-on-primary font-label-md text-label-md hover:opacity-80 transition-opacity duration-300" href="#contact">Get Started</a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-screen flex items-center justify-center overflow-hidden" id="hero">
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="Abstract geometric architecture in striking black and white with subtle texture. The composition is highly minimalist, featuring stark intersecting lines and vast empty negative space. Soft, high-key lighting creates a serene, premium atmosphere consistent with a light-mode corporate aesthetic." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDBm2J_dV-RPEMGZLWX18bgABbtIg6YgtAqnd5op7LNe-z9EHpGpoh2NTUkvRo7U1mMS-1_PX2yv_osyo3IC-xAmFZ7R_JuEDRl_bB7DS-bRtPwUZhQ68u1bSBqV6525P4kEIC4a1wVwStIQu5EEUHqA5ze9KXPwJrUf8r1oEfC_mO74ZL3cFhfFJDmpdD0S4jRa77FEqmHb0ymLGQ3yRw9AuXxCnQExIpl6pS0kOaOND97OfoFIYr4u5CY-9oWlJAffFRWzYl3wylQ&quot;);"></div>
+<div class="absolute inset-0 z-10 glass-overlay"></div>
+<div class="relative z-20 text-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter mb-stack-sm md:text-[80px] lg:text-[100px] leading-tight" id="slogan-text"><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">デ</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">ジ</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">タ</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">ル</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">で</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">、</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">未</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">来</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">を</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">織</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">る</span><span class="char-reveal" style="animation-name: fadeUp; animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running;">。</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto opacity-0 reveal-element delay-300 is-visible">
+                テクノロジーの本質を見極め、ビジネスの基盤を再構築する。ノイズを削ぎ落とし、真に価値あるデジタルトランスフォーメーションを実現します。
+            </p>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce opacity-70">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 0; font-size: 32px;">arrow_downward</span>
+</div>
+</section>
+<!-- Service Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface" id="service">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-md reveal-element is-visible">Service</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 card-shadow card-hover reveal-element is-visible" style="transition-delay: 100ms;">
+<div class="w-12 h-12 mb-6 flex items-center justify-center bg-surface-container-low rounded-full text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">architecture</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">システム設計</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        複雑なビジネス要件を解きほぐし、スケーラブルで堅牢なアーキテクチャを構築。ミニマリズムの哲学に基づく無駄のない設計を提供します。
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 card-shadow card-hover reveal-element is-visible" style="transition-delay: 200ms;">
+<div class="w-12 h-12 mb-6 flex items-center justify-center bg-surface-container-low rounded-full text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">データ戦略</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        蓄積されたデータを意味のあるインサイトへ変換。意思決定を加速させるための、静かで強力なデータ基盤を構築します。
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 card-shadow card-hover reveal-element is-visible" style="transition-delay: 300ms;">
+<div class="w-12 h-12 mb-6 flex items-center justify-center bg-surface-container-low rounded-full text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">view_quilt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">UI/UXデザイン</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        ユーザーの思考を妨げない、透明性の高いインターフェース。洗練されたタイポグラフィと余白の美学による上質な体験。
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Overview Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-background" id="overview">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 reveal-element is-visible">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-md">Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        私たちは、テクノロジーの力で企業の深層課題を解決するプロフェッショナル集団です。
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                        装飾的なソリューションではなく、本質的な構造改革を。静かなる強さ（Quiet Strength）を持って、クライアントのビジネスを次の次元へと導きます。圧倒的な品質と、洗練されたアプローチが私たちのシグネチャーです。
+                    </p>
+<div class="flex gap-8">
+<div>
+<div class="font-display-lg text-[40px] text-primary mb-2" data-target="120">120+</div>
+<div class="font-label-md text-label-md text-secondary">Success Cases</div>
+</div>
+<div>
+<div class="font-display-lg text-[40px] text-primary mb-2" data-target="98">98+</div>
+<div class="font-label-md text-label-md text-secondary">Retention Rate %</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 lg:col-start-7 reveal-element relative h-[500px] is-visible" style="transition-delay: 200ms;">
+<div class="absolute inset-0 bg-surface-container-high transform translate-x-4 translate-y-4"></div>
+<img alt="Corporate minimalist workspace" class="absolute inset-0 w-full h-full object-cover grayscale opacity-90" data-alt="A highly curated, modern corporate workspace featuring clean lines, premium materials, and abundant natural light. The environment is devoid of clutter, emphasizing a sophisticated minimalist aesthetic. Soft shadows and a neutral color palette of whites, soft greys, and deep blacks convey professional quiet strength." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOgwpooHdylilnWW2jfPPVDud9KmpG67YJE5tZg2Hd8x1gRdtlarl9PSdZR2ix9CJJV7Z72HG6WZbJSOUNkaYAhXezxKq9ynoFOgYgovRb_esqjpmqhm-7yQtE3xhpjTmN4Ag2bwAyoOc3lR_wdZnBRh9liEfVqvSl2gEl4OFzvBEr6GOT3vjH2LhKl0ozRREM2icAgOWR_z3B55bRAjHHZVbwQJsS-BqYY9DLRm06EBtcutPuF-HL6EzfCPZoHDQJ8vKJv_Bd9J7A">
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden" id="contact">
+<!-- Abstract graphical accent -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-bl-full pointer-events-none"></div>
+<div class="max-w-[800px] mx-auto reveal-element relative z-10 is-visible">
+<div class="text-center mb-stack-md">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Contact</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">次なるプロジェクトについて、お気軽にご相談ください。</p>
+</div>
+<form class="space-y-8">
+<div class="relative pt-6">
+<input class="block w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 text-on-background focus:border-primary focus:ring-0 focus:border-b-[1.5px] font-body-md transition-colors peer" id="name" placeholder=" " type="text">
+<label class="absolute left-0 top-2 text-secondary font-label-md text-label-md transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-body-md peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary cursor-text" for="name">Name</label>
+</div>
+<div class="relative pt-6">
+<input class="block w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 text-on-background focus:border-primary focus:ring-0 focus:border-b-[1.5px] font-body-md transition-colors peer" id="email" placeholder=" " type="email">
+<label class="absolute left-0 top-2 text-secondary font-label-md text-label-md transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-body-md peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary cursor-text" for="email">Email Address</label>
+</div>
+<div class="relative pt-6">
+<textarea class="block w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 text-on-background focus:border-primary focus:ring-0 focus:border-b-[1.5px] font-body-md transition-colors peer resize-none" id="message" placeholder=" " rows="4"></textarea>
+<label class="absolute left-0 top-2 text-secondary font-label-md text-label-md transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-body-md peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary cursor-text" for="message">Message</label>
+</div>
+<div class="pt-4 text-right">
+<button class="inline-flex items-center justify-center px-10 py-4 bg-primary text-on-primary font-label-md text-label-md hover:opacity-80 transition-opacity duration-300" type="submit">
+                        Send Message
+                        <span class="material-symbols-outlined ml-2" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-stack-md flex flex-col md:flex-row justify-between items-start gap-stack-sm max-w-container-max mx-auto border-t border-outline-variant mt-stack-lg bg-surface opacity-100 translate-y-0 transition-all duration-700">
+<div>
+<div class="font-display-lg text-headline-md text-primary mb-2">MINIMAL</div>
+<p class="font-caption text-caption text-secondary">© 2024 MINIMAL ARCHIVE. ALL RIGHTS RESERVED.</p>
+</div>
+<nav class="flex flex-wrap gap-6">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Sitemap</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Privacy</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Terms</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
+</nav>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-sm');
+                    header.classList.remove('py-6');
+                    header.classList.add('py-4');
+                } else {
+                    header.classList.remove('shadow-sm');
+                    header.classList.add('py-6');
+                    header.classList.remove('py-4');
+                }
+            });
+
+            // Hero Text Animation
+            const slogan = document.getElementById('slogan-text');
+            const text = slogan.innerText;
+            slogan.innerHTML = '';
+            
+            [...text].forEach((char, i) => {
+                const span = document.createElement('span');
+                span.innerText = char;
+                span.className = 'char-reveal';
+                span.style.animation = `fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards ${i * 0.1}s`;
+                slogan.appendChild(span);
+            });
+
+            // Add keyframes dynamically
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fadeUp {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Intersection Observer for Reveals
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        // Handle Counters if present in the revealed element
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000;
+                            const increment = target / (duration / 16); // 60fps
+                            let current = 0;
+
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current) + (counter.innerText.includes('%') ? '%' : '+');
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+                                }
+                            };
+                            updateCounter();
+                            counter.classList.remove('counter'); // Prevent re-running
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            document.querySelectorAll('.reveal-element').forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+    </script>
+
+
+</body></html>
