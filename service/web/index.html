@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="ja">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>解決できること | WebHouse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico">
+<script id="tailwind-config">
+    tailwind.config = { /* 省略（元のconfigをそのまま使用） */ }
+</script>
+<style>
+    /* 元のスタイルをすべて維持 */
+    .char-reveal { opacity: 0; transform: translateY(20px); display: inline-block; }
+    .nav-underline::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: theme('colors.primary'); transform-origin: bottom right; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .nav-underline:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    .reveal-element { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal-element.is-visible { opacity: 1; transform: translateY(0); }
+    .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-8px); }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden antialiased">
+
+<!-- TopNavBar（そのまま） -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 mx-auto transition-all duration-500 ease-in-out bg-surface/90 backdrop-blur-md border-b border-outline-variant" id="main-header">
+    <a class="font-display-lg text-headline-lg tracking-tighter text-primary" href="#">WebHouse</a>
+    <nav class="hidden md:flex gap-gutter">
+        <a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#hero">Slogan</a>
+        <a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#service">Service</a>
+        <a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#overview">Overview</a>
+        <a class="relative nav-underline font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+    </nav>
+    <a class="hidden md:block px-6 py-3 bg-primary text-on-primary font-label-md text-label-md hover:opacity-80 transition-opacity duration-300" href="#contact">Get Started</a>
+    <button class="md:hidden text-primary">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</header>
+
+<!-- 新しいHero -->
+<section class="pt-32 pb-20 px-margin-mobile md:px-margin-desktop bg-background" id="hero">
+    <div class="max-w-container-max mx-auto text-center">
+        <h1 class="font-display-lg text-display-lg text-primary tracking-tighter mb-6">
+            WebHouseが<br>解決できること
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Webのことなら何でもご相談ください。<br>「わからない」から「できた！」へ導きます。
+        </p>
+    </div>
+</section>
+
+<!-- 解決できる課題 -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface">
+    <div class="max-w-container-max mx-auto">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-md text-center">よくあるお悩み</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-surface-container-lowest p-8 rounded-xl card-shadow">
+                <p class="font-body-md text-body-md">・自社のWebサイトが欲しいけど、どこから始めたらいいかわからない。</p>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-xl card-shadow">
+                <p class="font-body-md text-body-md">・古いWebサイトをスマホでも見れるように再構築したい。</p>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-xl card-shadow">
+                <p class="font-body-md text-body-md">・現在のサイトに追加したい機能があるけど、どこに相談したらいいかわからない。</p>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-xl card-shadow">
+                <p class="font-body-md text-body-md">・Webサイトの運営費用などを安く抑えたい。</p>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-xl card-shadow md:col-span-2">
+                <p class="font-body-md text-body-md">・Web関連の相談や見積もりを無料でしたい。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6つのサービスホバーカード -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-background">
+    <div class="max-w-container-max mx-auto">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-md text-center">対応できる主な制作・開発</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <div class="bg-surface-container-lowest p-8 card-shadow card-hover group">
+                <div class="w-14 h-14 mb-6 flex items-center justify-center bg-primary/5 text-primary rounded-2xl group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-4xl">calendar_today</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">予約サイト作成</h3>
+                <p class="font-body-md text-on-surface-variant">オンライン予約システム、予約管理機能付きサイトを制作</p>
+            </div>
+
+            <div class="bg-surface-container-lowest p-8 card-shadow card-hover group">
+                <div class="w-14 h-14 mb-6 flex items-center justify-center bg-primary/5 text-primary rounded-2xl group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-4xl">quiz</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">Q&Aシステム作成</h3>
+                <p class="font-body-md text-on-surface-variant">よくある質問の検索・管理システムを構築</p>
+            </div>
+
+            <div class="bg-surface-container-lowest p-8 card-shadow card-hover group">
+                <div class="w-14 h-14 mb-6 flex items-center justify-center bg-primary/5 text-primary rounded-2xl group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-4xl">smartphone</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">スマホサイト作成</h3>
+                <p class="font-body-md text-on-surface-variant">既存サイトのリニューアル・スマホ完全対応</p>
+            </div>
+
+            <div class="bg-surface-container-lowest p-8 card-shadow card-hover group">
+                <div class="w-14 h-14 mb-6 flex items-center justify-center bg-primary/5 text-primary rounded-2xl group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-4xl">view_cozy</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">LP作成&デザイン</h3>
+                <p class="font-body-md text-on-surface-variant">高い成果を狙ったランディングページ制作</p>
+            </div>
+
+            <div class="bg-surface-container-lowest p-8 card-shadow card-hover group">
+                <div class="w-14 h-14 mb-6 flex items-center justify-center bg-primary/5 text-primary rounded-2xl group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-4xl">campaign</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">キャンペーンサイト作成</h3>
+                <p class="font-body-md text-on-surface-variant">期間限定キャンペーン用特設サイト</p>
+            </div>
+
+            <div class="bg-surface-container-lowest p-8 card-shadow card-hover group">
+                <div class="w-14 h-14 mb-6 flex items-center justify-center bg-primary/5 text-primary rounded-2xl group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-4xl">language</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">多言語サイト作成</h3>
+                <p class="font-body-md text-on-surface-variant">日本語・英語対応など多言語展開</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section（そのまま） -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden" id="contact">
+    <!-- Abstract graphical accent -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-bl-full pointer-events-none"></div>
+    <div class="max-w-[800px] mx-auto reveal-element relative z-10 is-visible">
+        <div class="text-center mb-stack-md">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Contact</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">次なるプロジェクトについて、お気軽にご相談ください。</p>
+        </div>
+        <form class="space-y-8">
+            <!-- フォーム内容（元のまま） -->
+            <div class="relative pt-6">
+                <input class="block w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 text-on-background focus:border-primary focus:ring-0 focus:border-b-[1.5px] font-body-md transition-colors peer" id="name" placeholder=" " type="text">
+                <label class="absolute left-0 top-2 text-secondary font-label-md text-label-md transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-body-md peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary cursor-text" for="name">Name</label>
+            </div>
+            <div class="relative pt-6">
+                <input class="block w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 text-on-background focus:border-primary focus:ring-0 focus:border-b-[1.5px] font-body-md transition-colors peer" id="email" placeholder=" " type="email">
+                <label class="absolute left-0 top-2 text-secondary font-label-md text-label-md transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-body-md peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary cursor-text" for="email">Email Address</label>
+            </div>
+            <div class="relative pt-6">
+                <textarea class="block w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 text-on-background focus:border-primary focus:ring-0 focus:border-b-[1.5px] font-body-md transition-colors peer resize-none" id="message" placeholder=" " rows="4"></textarea>
+                <label class="absolute left-0 top-2 text-secondary font-label-md text-label-md transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-body-md peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary cursor-text" for="message">Message</label>
+            </div>
+            <div class="pt-4 text-right">
+                <button class="inline-flex items-center justify-center px-10 py-4 bg-primary text-on-primary font-label-md text-label-md hover:opacity-80 transition-opacity duration-300" type="submit">
+                    Send Message
+                    <span class="material-symbols-outlined ml-2" style="font-size: 18px;">arrow_forward</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Footer（そのまま） -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-stack-md flex flex-col md:flex-row justify-between items-start gap-stack-sm max-w-container-max mx-auto border-t border-outline-variant mt-stack-lg bg-surface opacity-100 translate-y-0 transition-all duration-700">
+    <div>
+        <div class="font-display-lg text-headline-md text-primary mb-2">MINIMAL</div>
+        <p class="font-caption text-caption text-secondary">© 2024 MINIMAL ARCHIVE. ALL RIGHTS RESERVED.</p>
+    </div>
+    <nav class="flex flex-wrap gap-6">
+        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Sitemap</a>
+        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Privacy</a>
+        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Terms</a>
+        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
+    </nav>
+</footer>
+
+<script>
+    /* 元のスクリプトをそのまま使用 */
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+                header.classList.remove('py-6');
+                header.classList.add('py-4');
+            } else {
+                header.classList.remove('shadow-sm');
+                header.classList.add('py-6');
+                header.classList.remove('py-4');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
